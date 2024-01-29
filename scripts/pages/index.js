@@ -1,46 +1,38 @@
-    async function getPhotographers() {
-        // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet, 
-        // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-        let photographers = [
-            {
-                "name": "Ma data test",
-                "id": 1,
-                "city": "Paris",
-                "country": "France",
-                "tagline": "Ceci est ma data test",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Autre data test",
-                "id": 2,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "Ceci est ma data test 2",
-                "price": 500,
-                "portrait": "account.png"
-            },
-        ]
-        // et bien retourner le tableau photographers seulement une fois récupéré
-        return ({
-            photographers: [...photographers, ...photographers, ...photographers]})
-    }
+class App {
+  constructor () {
+    // Initialise l'objet qui interagit avec l'API des photographes
+    this.photographersApi = new PhotographerApi('../../data/photographers.json')
+  }
 
-    async function displayData(photographers) {
-        const photographersSection = document.querySelector(".photographer_section");
+  async getPhotographer () {
+    // Récupération des données de l'API
+    const photographersData = await this.photographersApi.getPhotographers()
 
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerTemplate(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-        });
-    }
+    // Affiche dans la console les données de l'API
+    console.table(photographersData)
 
-    async function init() {
-        // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
-        displayData(photographers);
-    }
-    
-    init();
-    
+    // Instanciation des données de l'API en utilisant PhotographerFactory
+    // Pourquoi ça ne marche pas p****.
+    const Photographers = await photographersData.map(photographers => new PhotographerFactory(photographers, 'photoApi'))
+
+    // Récupération de la section où afficher les photographes dans l'interface utilisateur
+    const photographersSection = document.querySelector('.photographer-section')
+
+    // Itération sur les photographes pour créer des éléments HTML et les ajouter à la section
+    Photographers.forEach(photographe => {
+      // Création d'une instance de PhotographerFactory pour chaque photographe
+      const Template = new PhotographerFactory()
+      const photographerModel = Template.photographerFactory(photographe)
+
+      // Récupération de la carte utilisateur HTML générée par PhotographerFactory
+      const userCardDOM = photographerModel.getUserCardDOM()
+
+      // Ajout de la carte utilisateur à la section des photographes dans l'interface utilisateur
+      photographersSection.appendChild(userCardDOM)
+    })
+  }
+}
+
+// Création d'une instance de la classe App et appel de la méthode getPhotographer
+const app = new App()
+app.getPhotographer()

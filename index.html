@@ -8,14 +8,18 @@
     <title>Fisheye</title>
   </head>
   <body>
-    <header>
-        <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
+    <header role="banner">
+      <a href="index.html" aria-label="Logo dirige vers la page accueil"><img src="assets/images/logo.png" class="logo"
+        alt="logo fisheye"/></a>
         <h1>Nos photographes</h1>
     </header>
-    <main id="main">
-        <div class="photographer_section"></div>
+
+    <main id="main" role="main" aria-label="Choisir un photographe pour voir son profil">
+        <div class="photographer-section"></div>
     </main>
-    <script src="scripts/templates/photographer.js"></script>
+    <script src="scripts/api/Api.js"></script>
+    <script src="scripts/factories/photographersFactory.js"></script>
+    <script src="scripts/models/photographer.js"></script>
     <script src="scripts/pages/index.js"></script>
   </body>
 </html>

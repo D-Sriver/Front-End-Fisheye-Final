@@ -5,7 +5,9 @@ body {
     margin: 0;
 }
 
-
+main{
+    margin-bottom: 5rem;
+}
 header {
     display: flex;
     flex-direction: row;
@@ -24,27 +26,47 @@ h1 {
     margin-left: 100px;
 }
 
-.photographer_section {
+.photographer-section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
 }
 
-.photographer_section article {
+.photographer-section article, .photographer-section .article-index {
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
-.photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
+.photographer-section article a {
+    text-decoration: none;
 }
 
-.photographer_section article img {
+.photographer-section article h2 {
+    color: #D3573C;
+    font-size: 36px;
+    margin-bottom: 0px;
+}
+.photographer-section article .country {
+    color: #901C1C;
+    font-size: 20px;
+}
+.photographer-section article .tagline {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 3px auto;
+}
+.photographer-section article .price-main {
+    color: #525252;
+    font-size: 16px;
+}
+
+.photographer-section article img {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
