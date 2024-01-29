@@ -1,4 +1,5 @@
 // Classe pour créer des objets Photographe en fonction du type (pour l'API de photos)
+// eslint-disable-next-line no-unused-vars
 class PhotographerFactory {
   constructor (data, type) {
     // Si le type est 'photoApi', renvoie une instance de la classe Photographer

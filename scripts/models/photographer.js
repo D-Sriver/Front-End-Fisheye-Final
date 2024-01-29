@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 function photographerTemplate (data) {
   const { name, portrait } = data
 
@@ -15,6 +16,7 @@ function photographerTemplate (data) {
   }
   return { name, picture, getUserCardDOM }
 }// Classe pour représenter un photographe
+// eslint-disable-next-line no-unused-vars
 class Photographer {
   // Le constructeur initialise les propriétés de l'instance avec les données du photographe
   constructor (photographers) {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -8,27 +9,67 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
+    <header role="banner">
+      <a href="index.html" aria-label="liens image logo vers la page accueil" tabindex="1"><img src="assets/images/logo.png" class="logo"
+          alt="logo fisheye"/></a>
     </header>
-    <main id="main">
+
+    <main id="main" aria-hidden="false" aria-label="page profil">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact-button" onclick="displayModal()" tabindex="4">Contactez-moi</button>
+      </div>
+  
+      <div class="gallerie-media">
+        <div class="gallerie-media-filters">
+          <p class="gallerie-media-filters-title">
+            Trier par
+          </p>
+          <div class="gallerie-media-filters-menu">
+  
+            <button id="buttonFilter" class="gallerie-media-filters-menu--selected" role="listbox" aria-current="true" aria-controls="filterList" aria-expanded="false" tabindex="3">
+            Catégories<span class="box-arrow"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+            </button>
+            
+            <ul id="filterList" class="gallerie-media-filters-menu--list" aria-activedescendant="filter_popular">
+              <li id="filter-date" role="option" aria-description="Trier par date" tabindex="3">Date</li>
+              <li id="filter-popular" role="option" aria-description="Trier par popularité" tabindex="3">Popularité</li>
+              <li id="filter-title" role="option" aria-description="Trier par titre" tabindex="3">Titre</li>
+          </ul>          
+  
+          </div>
+        </div>
+  
+  
+        <div class="gallery"></div>
       </div>
     </main>
-    <div id="contact_modal">
+
+    <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="modalTitle">
 			<div class="modal">
+
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+
+          <h2 id="modalTitle">Contactez-moi <br>
+            <span id="name-photograph-modal"></span>
+          </h2>
+          <img src="assets/icons/close.svg" id="close-modal-btn" onclick="closeModal()" alt="Croix ferme modal"
+            tabindex="4"/>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
+
+				<form action="photographer.html" method="post" id="form">
+          <div>
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" aria-required="true" tabindex="4">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" aria-required="true" tabindex="4">
+            <label for="email">Email</label>
+            <input type="email" id="email" aria-required="true" tabindex="4">
+            <label for="message">Votre message</label>
+            <textarea name="message" id="message" cols="77" rows="10" aria-required="true" tabindex="4"></textarea>
+          </div>
+          <button type="submit" class="contact-button" tabindex="4">Envoyer</button>
+        </form>
+
 			</div>
 		</div>
     <script src="/scripts/pages/photographer.js"></script>
