@@ -483,3 +483,17 @@ button{
     font-size: 24px;
     font-weight: 600;
 }
+.price p{
+    z-index: 10;
+}
+
+/* Partie like card */
+.liker{
+    cursor: pointer;
+}
+.like-plein{
+    display: none;
+}
+.like-vide{
+    display: inline-block;
+}
