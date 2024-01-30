@@ -42,6 +42,19 @@
     background-color: #D3573C;
     color: #000;
 }
+
+
+/* Modal contact */
+/* overlay  modal formulaire de contacte  */
+.overlay{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.796);
+    z-index: 9;
+}
+
 #contact_modal {
     display: none;
     position: fixed;
@@ -71,6 +84,13 @@
 .modal header {
     justify-content: space-between;
     width: 100%;
+}
+
+.modal header img {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
 }
 
 .modal header h2 {
@@ -116,8 +136,129 @@ form input, form textarea {
 form textarea{
     height: 150px;
 }
+
+.no-scroll{
+    overflow: hidden;
+}
+
+
+/* Lightbox  */
+#lightbox-modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    /* transform: translateX(-50%);  */
+    background-color: white;
+} 
+.lightbox{
+   
+    border-radius: 5px;
+    background-color: white;
+    width: 84%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 45px 35px;
+    margin: auto;
+    position:relative;
+    top: 0px;
+    overflow: hidden;
+    
+}
+.lightbox header img {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+.lightbox img .cross{
+    width: 50px;
+    
+}
+.lightbox .chevron-left{
+    width: 65px;
+    left: 10px;
+    top: 45%;
+}
+.lightbox .chevron-right{
+    width: 65px;
+    right: 10px;
+    top: 45%;
+    color: #901C1C;
+}
+.lightbox .image-contain{
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+}
+.lightbox span{
+    
+    color: #901C1C;
+    font-size: 24px;
+    padding: 20px 0;
+}
+
+.lightbox .img-lightbox {
+    width: 100%;
+   height: 88vh;
+   object-fit: contain;
+   border-radius: 8px;
+}
+
+
+
+
+/* Partie photographe header  */
+
+.photograph-header .name h1{
+    color: #D3573C;
+    font-size: 60px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.photograph-header .country {
+    color: #901C1C;
+    font-size: 26px;
+
+}
+
+.photograph-header .tagline {
+    color: #000;
+    color: #525252;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+
+.photograph-header img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Partie filtres */
 .gallerie-media {
     margin: 30px 100px;
+}
+
+button{
+    overflow: hidden;
+}
+.box-arrow{
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: all .4s ease-in-out;
+    overflow: hidden;
 }
 
 #buttonFilter {
@@ -140,6 +281,10 @@ form textarea{
 #buttonFilter:focus {
     background-color: #D3573C;
     color: #000;
+}
+#buttonFilter:hover .box-arrow,
+#buttonFilter:focus .box-arrow{
+  color: #FAFAFA;
 }
 .gallerie-media-filters {
     font-size: 18px;
@@ -233,4 +378,108 @@ form textarea{
 .gallerie-media-filters-menu--list > li:focus {
     background-color: #D3573C;   
     color: #000;
+}
+
+/* Permet de masquer l'option dans la liste  */
+.display-none {
+    display: none;
+}
+.valeur-cache{
+    display: none;
+    }
+    
+/* Fin de partie Filtre */
+
+/* Gallery */
+.gallery {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 100px;
+    row-gap: 50px;
+    
+}
+
+.photo-card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+}
+.photo-card .fa-video {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #FAFAFA;
+    text-shadow: 1px 0 5px #901C1C;
+}
+
+.photo-card h2{
+    color: #901C1C;
+    font-size: 26px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.photo-card h2 .title-card{
+    
+   position: absolute;
+   display: inline-block;
+   max-width: 80%;
+   
+}
+.photo-card h2  .like-card{
+    display:inline-block;
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+}
+.photo-card img, .photo-card video{
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: 50% 25%;
+    /* correction bug white space  */
+    vertical-align: middle;
+    cursor: pointer;  
+}
+
+.image-contain img, .image-contain video{
+    animation: appear .3s ease-in-out; 
+}
+
+.img-lightbox{
+    z-index: 13;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.price{
+    position: fixed;
+    bottom: 0px;
+    right: 50px;
+    width: 350px;
+    height: 50px;
+    background: #DB8876;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+    font-size: 24px;
+    font-weight: 600;
 }
