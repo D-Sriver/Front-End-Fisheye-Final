@@ -53,6 +53,7 @@ class MediaFactory {
                 </div>
                 `
         }
+      // eslint-disable-next-line brace-style
       }
 
       // Template photo
@@ -79,6 +80,43 @@ class MediaFactory {
       }
     }
 
+    // Fonction pour générer le DOM de la lightbox pour les vidéos
+    function getLightboxPhotoDOM () {
+      // Template lightbox photo
+
+      const lightbox = document.querySelector('.lightbox')
+      lightbox.innerHTML =
+                `
+            <header>
+            <img src="assets/icons/close-lightbox.svg" onclick="closeLightbox()"   class="cross"alt="Croix ferme modal" tabindex="1"/>
+            <img src="assets/icons/chevron-left.svg" onclick="previousSlide()" class="chevron-left" alt="chevron photo précédente" tabindex="1"/>
+            <img src="assets/icons/chevron-right.svg" onclick="nextSlide()" class="chevron-right" alt="Chevron Slide suivante" tabindex="1"/>
+            </header>
+            <div class="image-contain">
+            <img src="${picture}"  alt="image du photographe ${image}" class="img-lightbox" data="${data.title}"></img>
+            <span tabindex="1"  title="titre image">${data.title}</span>
+            </div>
+            `
+    }
+
+    function getLightboxVideoDOM () {
+      // Template lightbox video
+
+      const lightbox = document.querySelector('.lightbox')
+      lightbox.innerHTML =
+                `
+              
+            <header>
+            <img src="assets/icons/close-lightbox.svg" onclick="closeLightbox()"   class="cross" alt="Croix ferme modal" tabindex="1"/>
+            <img src="assets/icons/chevron-left.svg" onclick="previousSlide()" class="chevron-left" alt="chevron Slide précédente" tabindex="1"/>
+            <img src="assets/icons/chevron-right.svg" onclick="nextSlide()" class="chevron-right" alt="Chevron Slide suivante" tabindex="1"/>
+            </header>
+            <div class="image-contain">
+            <video controls src="${videoMp4}" class="img-lightbox" name="${video}" tabindex="1">Vidéo ${video}</video>
+            <span tabindex="1">${data.title}</span>
+            </div>
+            `
+    }
     // Retourne les données associées à l'objet média
     return {
       title,
@@ -89,7 +127,9 @@ class MediaFactory {
       likes,
       photographerId,
       id,
-      getMediaUserDOM
+      getMediaUserDOM,
+      getLightboxPhotoDOM,
+      getLightboxVideoDOM
     }
   }
 }

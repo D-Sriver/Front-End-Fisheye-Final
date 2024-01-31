@@ -1,4 +1,5 @@
 // Classe pour représenter un média
+// eslint-disable-next-line no-unused-vars
 class Media {
   // Le constructeur initialise les propriétés de l'instance avec les données du média
   constructor (media) {

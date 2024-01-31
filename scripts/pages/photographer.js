@@ -61,7 +61,6 @@ class Profil {
         const videoMedia = []
 
         for (let i = 0; i < medias.length; i++) {
-          // eslint-disable-next-line eqeqeq
           if (dataAttribute == medias[i].image) {
             photoMedia.push(medias[i])
             const gallerieMedia = Template.mediaFactory(photoMedia[0])
