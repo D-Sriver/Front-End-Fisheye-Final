@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 class App {
   constructor () {
     // Initialise l'objet qui interagit avec l'API des photographes
