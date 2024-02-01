@@ -2,7 +2,7 @@
 class App {
   constructor () {
     // Initialise l'objet qui interagit avec l'API des photographes
-    this.photographersApi = new PhotographerApi('../../data/photographers.json')
+    this.photographersApi = new PhotographerApi('https://d-sriver.github.io/Front-End-Fisheye-Final/data/photographers.json')
   }
 
   async getPhotographer () {
