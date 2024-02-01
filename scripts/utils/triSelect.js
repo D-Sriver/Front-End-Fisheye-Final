@@ -63,7 +63,7 @@ function cacheFiltre (target) {
   }
   target.classList.add('valeur-cache')
 }
-
+// TODO : supprimer catégorie et partir sur popularité
 // eslint-disable-next-line no-unused-vars
 async function selectFiltre (allMedias, run) {
   filterItemsElement.forEach(element => {

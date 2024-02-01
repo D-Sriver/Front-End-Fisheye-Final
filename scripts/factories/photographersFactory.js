@@ -12,7 +12,7 @@ class PhotographerFactory {
   // Méthode de création d'objets Photographe
   photographerFactory (data) {
     const { name, portrait, country, tagline, price } = data
-
+    // TODO : ajouter la city data dans le dom
     // Chemin du fichier de portrait du photographe
     const picture = `assets/photographers/photo-id/${portrait}`
 
