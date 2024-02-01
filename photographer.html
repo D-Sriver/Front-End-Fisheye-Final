@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html lang="fr">
   <head>
     
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header role="banner">
+    <header>
       <a href="index.html" aria-label="liens image logo vers la page accueil" tabindex="1"><img src="assets/images/logo.png" class="logo"
-          alt="logo fisheye"/></a>
+          alt="logo fisheye"></a>
     </header>
 
     <main id="main" aria-hidden="false" aria-label="page profil">
@@ -27,14 +27,14 @@
           </p>
           <div class="gallerie-media-filters-menu">
   
-            <button id="buttonFilter" class="gallerie-media-filters-menu--selected" role="listbox" aria-current="true" aria-controls="filterList" aria-expanded="false" tabindex="3">
+            <button id="buttonFilter" class="gallerie-media-filters-menu--selected" aria-current="true" aria-controls="filterList" aria-expanded="false" tabindex="3">
             Catégories<span class="box-arrow"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
             </button>
             
-            <ul id="filterList" class="gallerie-media-filters-menu--list" aria-activedescendant="filter_popular">
-              <li id="filter-date" role="option" aria-description="Trier par date" tabindex="3">Date</li>
-              <li id="filter-popular" role="option" aria-description="Trier par popularité" tabindex="3">Popularité</li>
-              <li id="filter-title" role="option" aria-description="Trier par titre" tabindex="3">Titre</li>
+            <ul id="filterList" class="gallerie-media-filters-menu--list">
+                <li id="filter-date" aria-description="Trier par date" tabindex="3">Date</li>
+              <li id="filter-popular" aria-description="Trier par popularité" tabindex="3">Popularité</li>
+              <li id="filter-title" aria-description="Trier par titre" tabindex="3">Titre</li>
           </ul>          
   
           </div>
@@ -54,7 +54,7 @@
             <span id="name-photograph-modal"></span>
           </h2>
           <img src="assets/icons/close.svg" id="close-modal-btn" onclick="closeModal()" alt="Croix ferme modal"
-            tabindex="4"/>
+            tabindex="4">
         </header>
 
 				<form action="photographer.html" method="post" id="form">
