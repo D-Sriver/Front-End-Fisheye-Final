@@ -37,7 +37,7 @@ class MediaFactory {
                         `
                 <div class="photo-card">
                 <i class="fas fa-video"></i>
-                <video controls autoplay src="${videoMp4}" class="img-gallery" name="${video}" tabindex="7" aria-description="video ${title}"></video>
+                <video controls src="${videoMp4}" class="img-gallery" name="${video}" tabindex="7" aria-description="video ${title}"></video>
                 <h2> <span class="title-card">${title}</span>
                 <span class="like-card"> 
                 <span class="nbre-like">${likes} </span>

@@ -30,3 +30,5 @@ function resetForm () {
   prenom.value = ''
   email.value = ''
 }
+
+// TODO : terminer la modale de contact
