@@ -3,7 +3,7 @@
 class Profil {
   constructor () {
     // Initialisation de l'objet qui interagit avec l'API des photographes
-    this.photographersApi = new PhotographerApi('https://d-sriver.github.io/data/photographers.json')
+    this.photographersApi = new PhotographerApi('https://d-sriver.github.io/Front-End-Fisheye-Final/data/photographers.json')
     // Récupération de l'identifiant du photographe depuis l'URL
     this.photographeId = new URL(location.href).searchParams.get('id')
   }
