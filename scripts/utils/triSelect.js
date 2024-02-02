@@ -2,6 +2,7 @@ const buttonSelect = document.querySelector('#buttonFilter')
 const filterSelectedElement = document.querySelector('.gallerie-media-filters-menu--selected')
 const filterListElement = document.querySelector('.gallerie-media-filters-menu--list')
 const filterItemsElement = document.querySelectorAll('.gallerie-media-filters-menu--list > li')
+const filterPopularElement = document.querySelector('#filter-popular')
 
 filterListElement.classList.add('display-none')
 
@@ -74,11 +75,13 @@ async function selectFiltre (allMedias, run) {
           return a.title > b.title ? 1 : -1
         })
         displaySelect(triParTitre, run)
+        filterPopularElement.style.display = 'block'
       } else if (element.id === 'filter-popular') {
         const triParPopularite = allMedias.sort((a, b) => {
           return a.likes > b.likes ? 1 : -1
         })
         displaySelect(triParPopularite, run)
+        filterPopularElement.style.display = 'none'
       } else if (element.id === 'filter-date') {
         const triParDate = allMedias.sort((a, b) => {
           return a.date > b.date ? 1 : -1
