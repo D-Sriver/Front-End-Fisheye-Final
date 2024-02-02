@@ -24,7 +24,8 @@ const arrowToggle = (() => {
     const boxArrow = document.querySelector('.box-arrow')
 
     if (open) {
-      boxArrow.style.transform = 'rotate(-180deg) translateY(25%) translateX(-50%)'
+      boxArrow.style.transformOrigin = '80% 50%'
+      boxArrow.style.transform = 'rotate(-180deg)'
       filterSelectedElement.classList.remove('display-none')
       filterListElement.classList.remove('display-none')
       filterSelectedElement.setAttribute(
