@@ -11,8 +11,7 @@ class PhotographerFactory {
 
   // Méthode de création d'objets Photographe
   photographerFactory (data) {
-    const { name, portrait, country, tagline, price } = data
-    // TODO : ajouter la city data dans le dom
+    const { name, portrait, country, city, tagline, price } = data
     // Chemin du fichier de portrait du photographe
     const picture = `assets/photographers/photo-id/${portrait}`
 
@@ -28,7 +27,7 @@ class PhotographerFactory {
               </div>
           </a>
           <div class="article-index">
-              <div class="country">${country}</div>
+              <div class="country">${city}, ${country}</div>
               <div class="tagline">${tagline}</div>
               <div class="price-main">${price}€/jour</div>
           </div>
@@ -47,7 +46,7 @@ class PhotographerFactory {
                 <div class="name" aria-label="nom du photographe" tabindex= "2" ><h1>${name}</h1></div>
                 
                 <div class="meta-infos-header" tabindex= "3">
-                <p class="country">${country}</p>
+                <p class="country">${city}, ${country}</p>
                 <p class="tagline">${tagline}</p>
                 </div>
             </div>
