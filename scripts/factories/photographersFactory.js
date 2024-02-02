@@ -55,7 +55,7 @@ class PhotographerFactory {
                 <img src="${picture}" alt="portrait du photographe ${name}"></img>  
             </div>
 
-            <div class="price" tabindex="8"><span class="total-like" aria-description="nombre total de j'aime"></span><p aria-description="tarif du photographe">${price}€/jour</p></div>
+            <div class="price" tabindex="8"><p aria-description="tarif du photographe">${price}€/jour</p><span class="total-like" aria-description="nombre total de j'aime"></span></div>
         `
       // Affichage du nom du photographe dans la modale.
       document.querySelector('#name-photograph-modal').innerText += name
