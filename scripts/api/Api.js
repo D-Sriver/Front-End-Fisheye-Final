@@ -6,17 +6,8 @@ class Api {
 
   // Requête GET générique à l'API
   async get () {
-    try {
-      // Utilisation de fetch pour récupérer les données de l'API
-      const response = await fetch(this._url)
-
-      // Conversion de la réponse en JSON et renvoi des données
-      return await response.json()
-    } catch (err) {
-      // Gestion des erreurs lors de la requête
-      console.log('Erreur fetch', err)
-      throw err
-    }
+    const response = await fetch(this._url)
+    return await response.json()
   }
 }
 

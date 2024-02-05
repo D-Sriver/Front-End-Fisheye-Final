@@ -9,9 +9,6 @@ class App {
     // Récupération des données de l'API
     const photographersData = await this.photographersApi.getPhotographers()
 
-    // Affiche dans la console les données de l'API
-    console.table(photographersData)
-
     // Instanciation des données de l'API en utilisant PhotographerFactory
     // Pourquoi ça ne marche pas p****.
     const Photographers = await photographersData.map(photographers => new PhotographerFactory(photographers, 'photoApi'))

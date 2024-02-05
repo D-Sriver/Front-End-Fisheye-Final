@@ -121,7 +121,6 @@ document.addEventListener('keydown', e => {
     closeLightbox()
   }
   if (e.key === 'Enter') {
-    console.log('enter')
     e.target.click()
   }
 })

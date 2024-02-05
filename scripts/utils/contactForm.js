@@ -40,7 +40,6 @@ function displayUserInfo () {
   }
 
   if (!prenomValue || !nomValue || !emailValue || !messageValue) {
-    console.log('Veuillez remplir tous les champs avant de fermer la modal.')
     errors.forEach(errorElement => {
       errorElement.style.display = 'block'
     })
@@ -48,9 +47,6 @@ function displayUserInfo () {
     errors.forEach(errorElement => {
       errorElement.style.display = 'none'
     })
-    console.table(userInfo)
-
-    // Fermer la modal
     closeModal()
   }
 }

@@ -12,7 +12,6 @@ class Profil {
   async getProfil () {
     const photographeData = await this.photographersApi.getPhotographers()
     const photographe = photographeData.find(e => e.id == this.photographeId)
-    console.table(photographe)
     return photographe
   }
 
