@@ -23,9 +23,7 @@ function closeLightbox () {
 
   // Accessibilité
   // eslint-disable-next-line no-undef
-  mainId.setAttribute('aria-hidden', 'false')
   // eslint-disable-next-line no-undef
-  body.classList.remove('no-scroll')
   lightboxModal.setAttribute('aria-hidden', 'true')
 }
 
