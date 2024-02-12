@@ -48,6 +48,7 @@ function displayUserInfo () {
       errorElement.style.display = 'none'
     })
     closeModal()
+    console.table(userInfo)
   }
 }
 
