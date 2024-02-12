@@ -1,0 +1,102 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Proje Fisheye",
+  "steps": [
+    {
+      "file": "data/photographers.json",
+      "description": "Modification des .jpg en Webp pour optimiser",
+      "line": 10
+    },
+    {
+      "file": "scripts/api/Api.js",
+      "description": "création de la classe api",
+      "line": 2
+    },
+    {
+      "file": "scripts/api/Api.js",
+      "description": "création de getPhotographers et getMedias",
+      "line": 16
+    },
+    {
+      "file": "index.html",
+      "description": "Creation de la page index",
+      "line": 10
+    },
+    {
+      "file": "scripts/models/photographer.js",
+      "description": "recuperation des elements du dom",
+      "line": 2
+    },
+    {
+      "file": "scripts/models/Medias.js",
+      "description": "création de la classe media",
+      "line": 3
+    },
+    {
+      "file": "scripts/factories/photographersFactory.js",
+      "description": "Création de factory",
+      "line": 13
+    },
+    {
+      "file": "scripts/factories/photographersFactory.js",
+      "description": "Factory de la page index",
+      "line": 19
+    },
+    {
+      "file": "scripts/factories/photographersFactory.js",
+      "description": "factory de la page photographer",
+      "line": 41
+    },
+    {
+      "file": "scripts/pages/photographer.js",
+      "description": "Creation de la page photographer",
+      "line": 3
+    },
+    {
+      "file": "scripts/pages/photographer.js",
+      "description": "Création de la galerie\n",
+      "line": 49
+    },
+    {
+      "file": "scripts/utils/like.js",
+      "description": "création du compteur de like",
+      "line": 3
+    },
+    {
+      "file": "scripts/utils/lighbox.js",
+      "description": "Lightbox",
+      "line": 3
+    },
+    {
+      "file": "scripts/utils/lighbox.js",
+      "description": "soit video soit image\n",
+      "line": 72
+    },
+    {
+      "file": "scripts/utils/lighbox.js",
+      "description": "Lightbox clavier",
+      "line": 114
+    },
+    {
+      "file": "scripts/utils/triSelect.js",
+      "description": "Systeme de tris",
+      "line": 8
+    },
+    {
+      "file": "scripts/utils/triSelect.js",
+      "description": "logique des filtres",
+      "line": 70
+    },
+    {
+      "file": "scripts/utils/contactForm.js",
+      "description": "Formulaire de contact",
+      "line": 3
+    },
+    {
+      "file": "scripts/utils/contactForm.js",
+      "description": "affiche les data dans la console",
+      "line": 51
+    }
+  ],
+  "ref": "main"
+}

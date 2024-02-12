@@ -22,7 +22,7 @@ class PhotographerFactory {
         `
           <a class="lien-profile" href="photographer.html?id=${data.id}" alt="Liens vers le profil de ${name} par clic sur image ou nom">
               <div class="article-index">
-              <img src="${picture}" alt="portrait du photographe ${name}"></img>
+              <img src="${picture}" alt="" ${name}"></img>
               <h2> ${name} </h2>
               </div>
           </a>
@@ -52,10 +52,10 @@ class PhotographerFactory {
             </div>
         
             <div class="header-image">
-                <img src="${picture}" alt="portrait du photographe ${name}"></img>  
+                <img src="${picture}" alt="${name}"></img>  
             </div>
 
-            <div class="price"><p aria-description="tarif du photographe">${price}€/jour</p><span class="total-like" aria-description="nombre total de j'aime"></span></div>
+            <div class="price"><p>${price}€/jour</p><span class="total-like"></span></div>
         `
       // Affichage du nom du photographe dans la modale.
       document.querySelector('#name-photograph-modal').innerText += name

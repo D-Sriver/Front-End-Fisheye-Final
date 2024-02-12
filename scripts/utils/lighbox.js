@@ -9,6 +9,7 @@ function displayLightbox () {
   priceDiv.style.opacity = '0'
 
   // Accessibilité
+  lightboxModal.setAttribute('aria-label', 'image closeup view')
   lightboxModal.setAttribute('aria-hidden', 'false')
   closeLightboxBtn.focus()
 }
@@ -22,9 +23,8 @@ function closeLightbox () {
   priceDiv.style.opacity = '1'
 
   // Accessibilité
-  // eslint-disable-next-line no-undef
-  // eslint-disable-next-line no-undef
   lightboxModal.setAttribute('aria-hidden', 'true')
+  lightboxModal.setAttribute('aria-label', 'Close dialog')
 }
 
 // Passer à la slide suivante
@@ -68,6 +68,8 @@ function displayMediaLightbox (index) {
   const medias = document.querySelectorAll('.img-gallery')
   const sliderImage = document.querySelector('.image-contain')
   const titreCard = document.querySelectorAll('.title-card')
+
+  sliderImage.setAttribute('aria-label', 'image closeup view')
 
   medias[index].src.slice(-('mp4').length).match('mp4')
     ? sliderImage.innerHTML = `

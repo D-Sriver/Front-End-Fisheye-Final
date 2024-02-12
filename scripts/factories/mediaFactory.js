@@ -42,10 +42,10 @@ class MediaFactory {
                 <span class="like-card"> 
                 <span class="nbre-like">${likes} </span>
                    <span class="liker like-vide">   
-                       <i class="far fa-heart" tabindex="7" aria-label="ajouter j'aime en cliquant" role="bouton"></i>
+                       <i class="far fa-heart" tabindex="7" aria-label="likes" role="bouton"></i>
                    </span>
                    <span class="liker like-plein"> 
-                       <i class="fas fa-heart" tabindex="7" aria-label="retirer j'aime en cliquant" role="bouton"></i>
+                       <i class="fas fa-heart" tabindex="7" aria-label="likes" role="bouton"></i>
                    </span>
                    </span>
 
@@ -107,9 +107,9 @@ class MediaFactory {
                 `
               
             <header>
-            <img src="assets/icons/close-lightbox.svg" onclick="closeLightbox()"   class="cross" alt="Croix ferme modal" tabindex="1"/>
-            <img src="assets/icons/chevron-left.svg" onclick="previousSlide()" class="chevron-left" alt="chevron Slide précédente" tabindex="1"/>
-            <img src="assets/icons/chevron-right.svg" onclick="nextSlide()" class="chevron-right" alt="Chevron Slide suivante" tabindex="1"/>
+            <img src="assets/icons/close-lightbox.svg" onclick="closeLightbox()"   class="cross" alt="Close dialog" tabindex="1"/>
+            <img src="assets/icons/chevron-left.svg" onclick="previousSlide()" class="chevron-left" alt="Previous image" tabindex="1"/>
+            <img src="assets/icons/chevron-right.svg" onclick="nextSlide()" class="chevron-right" alt="Next image" tabindex="1"/>
             </header>
             <div class="image-contain">
             <video controls src="${videoMp4}" class="img-lightbox" name="${video}" tabindex="1">Vidéo ${video}</video>

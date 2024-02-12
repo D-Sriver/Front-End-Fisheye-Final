@@ -25,6 +25,9 @@ const arrowToggle = (() => {
     const boxArrow = document.querySelector('.box-arrow')
 
     if (open) {
+      // TODO : order by ( si Si <select>: Pas d’attribut ARIA supplémentaire nécessaire
+      // TODO: Si listbox ARIA: le trigger du menu a comme attributs role=”button”, aria-haspopup=”listbox”, aria-expanded.
+      // TODO : Liste d’options : role=”listbox”, aria-activedescendant, aria-selected, aria-labelledby qui pointe vers l’input label)
       boxArrow.style.transformOrigin = '80% 50%'
       boxArrow.style.transform = 'rotate(-180deg)'
       filterSelectedElement.classList.remove('display-none')
