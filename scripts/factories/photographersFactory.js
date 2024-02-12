@@ -43,9 +43,9 @@ class PhotographerFactory {
       headerPhotographer.innerHTML +=
       // Template header photographer.html
         `   <div class="header-infos"> 
-                <div class="name" aria-label="nom du photographe" tabindex= "2" ><h1>${name}</h1></div>
+                <div class="name" aria-label="nom du photographe" ><h1>${name}</h1></div>
                 
-                <div class="meta-infos-header" tabindex= "3">
+                <div class="meta-infos-header">
                 <p class="country">${city}, ${country}</p>
                 <p class="tagline">${tagline}</p>
                 </div>
@@ -55,7 +55,7 @@ class PhotographerFactory {
                 <img src="${picture}" alt="portrait du photographe ${name}"></img>  
             </div>
 
-            <div class="price" tabindex="8"><p aria-description="tarif du photographe">${price}€/jour</p><span class="total-like" aria-description="nombre total de j'aime"></span></div>
+            <div class="price"><p aria-description="tarif du photographe">${price}€/jour</p><span class="total-like" aria-description="nombre total de j'aime"></span></div>
         `
       // Affichage du nom du photographe dans la modale.
       document.querySelector('#name-photograph-modal').innerText += name
