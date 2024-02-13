@@ -1,4 +1,6 @@
 // ouvrir la lightbox
+let currentIndex = 0
+
 // eslint-disable-next-line no-unused-vars
 function displayLightbox () {
   navigationLightbox()
@@ -26,41 +28,18 @@ function closeLightbox () {
   lightboxModal.setAttribute('aria-hidden', 'true')
   lightboxModal.setAttribute('aria-label', 'Close dialog')
 }
-
 // Passer à la slide suivante
 function nextSlide () {
-  // Je sélectionne tous mes medias
   const medias = document.querySelectorAll('.img-gallery')
-  const imageActuelle = document.querySelector('.img-lightbox')
-  let index = 0
-  // Je fais une boucle sur tous les medias
-  for (const media of medias) {
-    if (media.src === imageActuelle.src && index < medias.length - 1) {
-      index++
-      return displayMediaLightbox(index)
-    } else if (media.src === imageActuelle.src && index === medias.length - 1) {
-      return boucleFinMediaLightBox(index)
-    }
-    index++
-  }
+  currentIndex = (currentIndex + 1) % medias.length
+  displayMediaLightbox(currentIndex)
 }
 
 // Retourner à la slide précédente
 function previousSlide () {
-  // Je sélectionne tous les médias
   const medias = document.querySelectorAll('.img-gallery')
-  const imageActuelle = document.querySelector('.img-lightbox')
-  let index = 0
-  // Je fais une boucle sur tous les medias
-  for (const media of medias) {
-    if (imageActuelle.src !== media && index === 0) {
-      boucleDebutMediaLightBox(index)
-    } else if (media.src === imageActuelle.src && index > -1) {
-      index--
-      displayMediaLightbox(index)
-    }
-    index++
-  }
+  currentIndex = (currentIndex - 1 + medias.length) % medias.length
+  displayMediaLightbox(currentIndex)
 }
 
 // Afficher slide
@@ -80,39 +59,6 @@ function displayMediaLightbox (index) {
         <span tabindex='1'>${titreCard[index].innerText}</span> 
         `
 }
-
-// Retourner à la première slide
-function boucleFinMediaLightBox (index) {
-  const medias = document.querySelectorAll('.img-gallery')
-  const sliderImage = document.querySelector('.image-contain')
-  const titreCard = document.querySelectorAll('.title-card')
-
-  medias[0].src.slice(-('mp4').length).match('mp4')
-    ? sliderImage.innerHTML = `
-        <video controls src='${medias[0].src}' class='img-lightbox' tabindex="1">Video</video>
-        <span>${titreCard[0].innerText}</span>            `
-    : sliderImage.innerHTML = `
-        <img src='${medias[0].src}'  alt='image du photographe ' class='img-lightbox' data='${medias[index].data}'>
-        <span tabindex='1'>${titreCard[0].innerText}</span> 
-        `
-}
-
-// Passer a la dernière slide
-function boucleDebutMediaLightBox (index) {
-  const medias = document.querySelectorAll('.img-gallery')
-  const sliderImage = document.querySelector('.image-contain')
-  const titreCard = document.querySelectorAll('.title-card')
-
-  medias[medias.length - 1].src.slice(-('mp4').length).match('mp4')
-    ? sliderImage.innerHTML = `
-        <video controls src='${medias[medias.length - 1].src}' class="img-lightbox" tabindex="1">Video</video>
-        <span>${titreCard[medias.length - 1].innerText}</span>            `
-    : sliderImage.innerHTML = `
-        <img src="${medias[medias.length - 1].src}"  alt="image du photographe " class="img-lightbox" data="${medias[index].data}">
-        <span tabindex="1">${titreCard[medias.length - 1].innerText}</span> 
-        `
-}
-
 // Fermer avec esc lightbox
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
