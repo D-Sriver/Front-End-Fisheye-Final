@@ -25,9 +25,6 @@ const arrowToggle = (() => {
     const boxArrow = document.querySelector('.box-arrow')
 
     if (open) {
-      // TODO : order by ( si Si <select>: Pas d’attribut ARIA supplémentaire nécessaire
-      // TODO: Si listbox ARIA: le trigger du menu a comme attributs role=”button”, aria-haspopup=”listbox”, aria-expanded.
-      // TODO : Liste d’options : role=”listbox”, aria-activedescendant, aria-selected, aria-labelledby qui pointe vers l’input label)
       boxArrow.style.transformOrigin = '80% 50%'
       boxArrow.style.transform = 'rotate(-180deg)'
       filterSelectedElement.classList.remove('display-none')
@@ -68,29 +65,29 @@ function cacheFiltre (target) {
   }
   target.classList.add('valeur-cache')
 }
-// TODO : supprimer catégorie et partir sur popularité
 // eslint-disable-next-line no-unused-vars
 async function selectFiltre (allMedias, run) {
+  function sortAndDisplay (sortedMedias, displayPopularElement) {
+    displaySelect(sortedMedias, run)
+    filterPopularElement.style.display = displayPopularElement
+  }
+
   filterItemsElement.forEach(element => {
     element.addEventListener('click', function () {
+      let sortedMedias
+      let displayPopularElement = 'block'
+
       if (element.id === 'filter-title') {
-        const triParTitre = allMedias.sort((a, b) => {
-          return a.title > b.title ? 1 : -1
-        })
-        displaySelect(triParTitre, run)
-        filterPopularElement.style.display = 'block'
+        sortedMedias = allMedias.sort((a, b) => (a.title > b.title ? 1 : -1))
       } else if (element.id === 'filter-popular') {
-        const triParPopularite = allMedias.sort((a, b) => {
-          return a.likes > b.likes ? 1 : -1
-        })
-        displaySelect(triParPopularite, run)
-        filterPopularElement.style.display = 'none'
+        sortedMedias = allMedias.sort((a, b) => (a.likes > b.likes ? 1 : -1))
+        displayPopularElement = 'none'
       } else if (element.id === 'filter-date') {
-        const triParDate = allMedias.sort((a, b) => {
-          return a.date > b.date ? 1 : -1
-        })
-        displaySelect(triParDate, run)
+        sortedMedias = allMedias.sort((a, b) => (a.date > b.date ? 1 : -1))
       }
+
+      sortAndDisplay(sortedMedias, displayPopularElement)
+
       buttonSelect.innerHTML = `${element.innerText}<span class="box-arrow"><i class="fas fa-chevron-down" aria-hidden="false"></i></span>`
       cacheFiltre(element)
     })
