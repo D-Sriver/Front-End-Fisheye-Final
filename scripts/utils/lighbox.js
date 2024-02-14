@@ -1,4 +1,4 @@
-// ouvrir la lightbox
+/ ouvrir la lightbox
 let currentIndex = 0
 
 // eslint-disable-next-line no-unused-vars
@@ -14,12 +14,13 @@ function displayLightbox () {
   lightboxModal.setAttribute('aria-label', 'image closeup view')
   lightboxModal.setAttribute('aria-hidden', 'false')
   closeLightboxBtn.focus()
+
+  console.log(currentIndex)
 }
 
 // Fermer lightbox
 function closeLightbox () {
   const lightboxModal = document.getElementById('lightbox-modal')
-
   lightboxModal.style.display = 'none'
   const priceDiv = document.querySelector('.price')
   priceDiv.style.opacity = '1'
@@ -27,19 +28,29 @@ function closeLightbox () {
   // Accessibilité
   lightboxModal.setAttribute('aria-hidden', 'true')
   lightboxModal.setAttribute('aria-label', 'Close dialog')
+  console.log(currentIndex)
+
+  // Réinitialiser l'index à 0
+  currentIndex = 0
+
+  // Détacher l'écouteur d'événements pour les flèches lorsque la lightbox est fermée
+  document.removeEventListener('keydown', navigationLightbox)
 }
 // Passer à la slide suivante
 function nextSlide () {
   const medias = document.querySelectorAll('.img-gallery')
-  currentIndex = (currentIndex + 1) % medias.length
-  displayMediaLightbox(currentIndex)
+  if (currentIndex < medias.length - 1) {
+    displayMediaLightbox(currentIndex++)
+    console.log(currentIndex)
+  }
 }
 
-// Retourner à la slide précédente
+// Passer à la slide précédente
 function previousSlide () {
-  const medias = document.querySelectorAll('.img-gallery')
-  currentIndex = (currentIndex - 1 + medias.length) % medias.length
-  displayMediaLightbox(currentIndex)
+  if (currentIndex > 0) {
+    displayMediaLightbox(currentIndex--)
+    console.log(currentIndex)
+  }
 }
 
 // Afficher slide
@@ -62,8 +73,6 @@ function displayMediaLightbox (index) {
 // Fermer avec esc lightbox
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    // eslint-disable-next-line no-undef
-    filterListClose()
     closeLightbox()
   }
   if (e.key === 'Enter') {

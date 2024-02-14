@@ -48,22 +48,29 @@ class Profil {
 
   // Crée le DOM pour les médias du photographe
   async createMediaDOM () {
+    // récupération des médias
     const Template = new MediaFactory()
     const medias = await this.getAllMediaPhotographer()
-
+    // sélectionner les médias
     const photos = document.querySelectorAll('.img-gallery')
+    // forEach en parcourant les médias
     photos.forEach(e => {
       e.addEventListener('click', (e) => {
+        // récupérer le nom du media cliqué
         const dataAttribute = e.target.getAttribute('name')
-        // crée un tableau vide pour les photos et un pour les vidéos
+        // crée un tableau vide pour les photos et pour les vidéos
         const photoMedia = []
         const videoMedia = []
 
+        // boucle sur les medias
         for (let i = 0; i < medias.length; i++) {
-          if (dataAttribute == medias[i].image) {
+          // comparaison du nom du media cliqué avec image
+          if (dataAttribute === medias[i].image) {
+            // récupération du media cliqué
             photoMedia.push(medias[i])
             const gallerieMedia = Template.mediaFactory(photoMedia[0])
             gallerieMedia.getLightboxPhotoDOM()
+            // comparaison du nom du media cliqué avec video
           } else if (dataAttribute == medias[i].video) {
             videoMedia.push(medias[i])
             const gallerieMedia = Template.mediaFactory(videoMedia[0])
@@ -71,7 +78,6 @@ class Profil {
           }
         }
         // Ouverture lightbox
-        // eslint-disable-next-line no-undef
         displayLightbox()
       })
     })
