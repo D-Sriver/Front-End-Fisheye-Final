@@ -41,20 +41,24 @@ function nextSlide () {
   const medias = document.querySelectorAll('.img-gallery')
   if (currentIndex < medias.length - 1) {
     currentIndex++
-    displayMediaLightbox(currentIndex)
-    console.log(currentIndex)
+  } else {
+    currentIndex = 0
   }
+  displayMediaLightbox(currentIndex)
+  console.log(currentIndex)
 }
 
 // Passer à la slide précédente
 function previousSlide () {
+  const medias = document.querySelectorAll('.img-gallery')
   if (currentIndex > 0) {
     currentIndex--
-    displayMediaLightbox(currentIndex)
-    console.log(currentIndex)
+  } else {
+    currentIndex = medias.length - 1
   }
+  displayMediaLightbox(currentIndex)
+  console.log(currentIndex)
 }
-
 // Afficher slide
 function displayMediaLightbox (index) {
   const medias = document.querySelectorAll('.img-gallery')
@@ -72,7 +76,6 @@ function displayMediaLightbox (index) {
         <span tabindex='1'>${titreCard[index].innerText}</span> 
         `
 }
-
 // Navigation avec les flèches et fermeture avec esc
 function navigationLightbox () {
   document.addEventListener('keydown', e => {
