@@ -70,24 +70,16 @@ function displayMediaLightbox (index) {
         <span tabindex='1'>${titreCard[index].innerText}</span> 
         `
 }
-// Fermer avec esc lightbox
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    closeLightbox()
-  }
-  if (e.key === 'Enter') {
-    e.target.click()
-  }
-})
 
-// Navigation avec les flèches
+// Navigation avec les flèches et fermeture avec esc
 function navigationLightbox () {
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') {
       nextSlide()
-    }
-    if (e.key === 'ArrowLeft') {
+    } else if (e.key === 'ArrowLeft') {
       previousSlide()
+    } else if (e.key === 'Escape') {
+      closeLightbox()
     }
   })
 }
