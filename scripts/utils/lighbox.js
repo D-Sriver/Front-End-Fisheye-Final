@@ -40,7 +40,8 @@ function closeLightbox () {
 function nextSlide () {
   const medias = document.querySelectorAll('.img-gallery')
   if (currentIndex < medias.length - 1) {
-    displayMediaLightbox(currentIndex++)
+    currentIndex++
+    displayMediaLightbox(currentIndex)
     console.log(currentIndex)
   }
 }
@@ -48,7 +49,8 @@ function nextSlide () {
 // Passer à la slide précédente
 function previousSlide () {
   if (currentIndex > 0) {
-    displayMediaLightbox(currentIndex--)
+    currentIndex--
+    displayMediaLightbox(currentIndex)
     console.log(currentIndex)
   }
 }
