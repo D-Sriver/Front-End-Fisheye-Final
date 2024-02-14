@@ -1,4 +1,4 @@
-/ ouvrir la lightbox
+// ouvrir la lightbox
 let currentIndex = 0
 
 // eslint-disable-next-line no-unused-vars
