@@ -1,5 +1,6 @@
 // ouvrir la lightbox
 let currentIndex = 0
+console.log("Index avant d'incrémenter : ", currentIndex)
 
 // eslint-disable-next-line no-unused-vars
 function displayLightbox () {
@@ -15,7 +16,7 @@ function displayLightbox () {
   lightboxModal.setAttribute('aria-hidden', 'false')
   closeLightboxBtn.focus()
 
-  console.log(currentIndex)
+  console.log('index au clic ', currentIndex)
 }
 
 // Fermer lightbox
@@ -28,7 +29,7 @@ function closeLightbox () {
   // Accessibilité
   lightboxModal.setAttribute('aria-hidden', 'true')
   lightboxModal.setAttribute('aria-label', 'Close dialog')
-  console.log(currentIndex)
+  console.log('Index a la fermure', currentIndex)
 
   // Réinitialiser l'index à 0
   currentIndex = 0
@@ -45,7 +46,6 @@ function nextSlide () {
     currentIndex = 0
   }
   displayMediaLightbox(currentIndex)
-  console.log(currentIndex)
 }
 
 // Passer à la slide précédente
@@ -57,7 +57,6 @@ function previousSlide () {
     currentIndex = medias.length - 1
   }
   displayMediaLightbox(currentIndex)
-  console.log(currentIndex)
 }
 // Afficher slide
 function displayMediaLightbox (index) {
@@ -66,6 +65,7 @@ function displayMediaLightbox (index) {
   const titreCard = document.querySelectorAll('.title-card')
 
   sliderImage.setAttribute('aria-label', 'image closeup view')
+  console.log('Index dans displayMediaLightbox : ', currentIndex)
 
   medias[index].src.slice(-('mp4').length).match('mp4')
     ? sliderImage.innerHTML = `
