@@ -2,19 +2,21 @@
 let currentIndex
 // eslint-disable-next-line no-unused-vars
 function displayLightbox (index) {
-  navigationLightbox()
   const lightboxModal = document.getElementById('lightbox-modal')
   const closeLightboxBtn = document.querySelector('.cross')
   lightboxModal.style.display = 'block'
   const priceDiv = document.querySelector('.price')
   priceDiv.style.opacity = '0'
+
+  document.addEventListener('keydown', navigationLightbox)
+
   currentIndex = index
 
   // Accessibilité
   lightboxModal.setAttribute('aria-label', 'image closeup view')
   lightboxModal.setAttribute('aria-hidden', 'false')
   closeLightboxBtn.focus()
-  console.log('index au clic ', currentIndex)
+  console.log('index au clic ', ((currentIndex) + 1))
 }
 
 // Fermer lightbox
@@ -27,7 +29,7 @@ function closeLightbox () {
   // Accessibilité
   lightboxModal.setAttribute('aria-hidden', 'true')
   lightboxModal.setAttribute('aria-label', 'Close dialog')
-  console.log('Index a la fermure', currentIndex)
+  console.log('Index a la fermure', ((currentIndex) + 1))
 
   // Réinitialiser l'index à 0
   currentIndex = 0
@@ -63,7 +65,7 @@ function displayMediaLightbox (index) {
   const titreCard = document.querySelectorAll('.title-card')
 
   sliderImage.setAttribute('aria-label', 'image closeup view')
-  console.log('Index dans displayMediaLightbox : ', currentIndex)
+  console.log('Index image actuelle : ', ((currentIndex) + 1))
 
   medias[index].src.slice(-('mp4').length).match('mp4')
     ? sliderImage.innerHTML = `
@@ -74,15 +76,13 @@ function displayMediaLightbox (index) {
         <span tabindex='1'>${titreCard[index].innerText}</span> 
         `
 }
-// Navigation avec les flèches et fermeture avec esc
-function navigationLightbox () {
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight') {
-      nextSlide()
-    } else if (e.key === 'ArrowLeft') {
-      previousSlide()
-    } else if (e.key === 'Escape') {
-      closeLightbox()
-    }
-  })
+// crée une function simple d'utilisation du clavier pour avancer reculer et fermer la lightbox en ES6
+function navigationLightbox (e) {
+  if (e.key === 'ArrowRight') {
+    nextSlide()
+  } else if (e.key === 'ArrowLeft') {
+    previousSlide()
+  } else if (e.key === 'Escape') {
+    closeLightbox()
+  }
 }
