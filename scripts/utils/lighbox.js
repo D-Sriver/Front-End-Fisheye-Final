@@ -1,7 +1,5 @@
 // ouvrir la lightbox
-let currentIndex = 0
-console.log("Index avant d'incrémenter : ", currentIndex)
-
+let currentIndex
 // eslint-disable-next-line no-unused-vars
 function displayLightbox (index) {
   navigationLightbox()
@@ -10,13 +8,13 @@ function displayLightbox (index) {
   lightboxModal.style.display = 'block'
   const priceDiv = document.querySelector('.price')
   priceDiv.style.opacity = '0'
+  currentIndex = index
 
   // Accessibilité
   lightboxModal.setAttribute('aria-label', 'image closeup view')
   lightboxModal.setAttribute('aria-hidden', 'false')
   closeLightboxBtn.focus()
-
-  console.log('index au clic ', index)
+  console.log('index au clic ', currentIndex)
 }
 
 // Fermer lightbox
