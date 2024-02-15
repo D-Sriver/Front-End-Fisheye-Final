@@ -54,7 +54,7 @@ class Profil {
     // sélectionner les médias
     const photos = document.querySelectorAll('.img-gallery')
     // forEach en parcourant les médias
-    photos.forEach(e => {
+    photos.forEach((e, index) => {
       e.addEventListener('click', (e) => {
         // récupérer le nom du media cliqué
         const dataAttribute = e.target.getAttribute('name')
@@ -78,7 +78,7 @@ class Profil {
           }
         }
         // Ouverture lightbox
-        displayLightbox()
+        displayLightbox(index)
       })
     })
   }

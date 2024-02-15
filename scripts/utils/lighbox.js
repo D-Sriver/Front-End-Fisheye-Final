@@ -3,7 +3,7 @@ let currentIndex = 0
 console.log("Index avant d'incrémenter : ", currentIndex)
 
 // eslint-disable-next-line no-unused-vars
-function displayLightbox () {
+function displayLightbox (index) {
   navigationLightbox()
   const lightboxModal = document.getElementById('lightbox-modal')
   const closeLightboxBtn = document.querySelector('.cross')
@@ -16,7 +16,7 @@ function displayLightbox () {
   lightboxModal.setAttribute('aria-hidden', 'false')
   closeLightboxBtn.focus()
 
-  console.log('index au clic ', currentIndex)
+  console.log('index au clic ', index)
 }
 
 // Fermer lightbox
