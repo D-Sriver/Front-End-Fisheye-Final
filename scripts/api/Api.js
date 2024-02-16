@@ -19,7 +19,6 @@ class PhotographerApi extends Api {
     // Appel à la méthode get() de la classe parente pour obtenir les données
     const data = await this.get()
     return data.photographers
-    // console log pour vérifier que la requête fonctionne
   }
 
   // Récupère la liste des médias depuis l'API

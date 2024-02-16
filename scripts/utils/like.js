@@ -10,6 +10,7 @@ function totalLike () {
   })
   return total
 }
+// ce projet va ma rendre fou
 
 // eslint-disable-next-line no-unused-vars
 function likePlus () {

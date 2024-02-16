@@ -16,7 +16,6 @@ function displayLightbox (index) {
   lightboxModal.setAttribute('aria-label', 'image closeup view')
   lightboxModal.setAttribute('aria-hidden', 'false')
   closeLightboxBtn.focus()
-  console.log('index au clic ', ((currentIndex) + 1))
 }
 
 // Fermer lightbox
@@ -29,7 +28,6 @@ function closeLightbox () {
   // Accessibilité
   lightboxModal.setAttribute('aria-hidden', 'true')
   lightboxModal.setAttribute('aria-label', 'Close dialog')
-  console.log('Index a la fermure', ((currentIndex) + 1))
 
   // Réinitialiser l'index à 0
   currentIndex = 0
@@ -66,7 +64,6 @@ function displayMediaLightbox (index) {
   const lightboxModal = document.getElementById('lightbox-modal')
 
   sliderImage.setAttribute('aria-label', 'image closeup view')
-  console.log('Index image actuelle : ', ((currentIndex) + 1))
   lightboxModal.setAttribute('aria-hidden', 'true')
 
   medias[index].src.slice(-('mp4').length).match('mp4')
