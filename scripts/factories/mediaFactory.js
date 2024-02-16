@@ -107,19 +107,27 @@ class MediaFactory {
 
       const lightbox = document.querySelector('.lightbox')
       lightbox.innerHTML =
-                `
-              
-            <header>
-            <img src="assets/icons/close-lightbox.svg" onclick="closeLightbox()"   class="cross" alt="Close dialog" tabindex="1"/>
-            <img src="assets/icons/chevron-left.svg" onclick="previousSlide()" class="chevron-left" alt="Previous image" tabindex="1"/>
-            <img src="assets/icons/chevron-right.svg" onclick="nextSlide()" class="chevron-right" alt="Next image" tabindex="1"/>
-            </header>
-            <div class="image-contain">
-            <video controls src="${videoMp4}" class="img-lightbox" name="${video}" tabindex="1">Vidéo ${video}</video>
-            <span tabindex="1">${data.title}</span>
-            </div>
-            `
+        `
+        <header>
+          <img src="assets/icons/close-lightbox.svg" class="cross" alt="Close dialog" tabindex="1"/>
+          <img src="assets/icons/chevron-left.svg" class="chevron-left" alt="Previous image" tabindex="1"/>
+          <img src="assets/icons/chevron-right.svg" class="chevron-right" alt="Next image" tabindex="1"/>
+        </header>
+        <div class="image-contain">
+          <video controls src="${videoMp4}" class="img-lightbox" name="${video}" tabindex="1">Vidéo ${video}</video>
+          <span tabindex="1">${data.title}</span>
+        </div>
+        `
+
+      const closeButton = lightbox.querySelector('.cross')
+      const prevButton = lightbox.querySelector('.chevron-left')
+      const nextButton = lightbox.querySelector('.chevron-right')
+
+      closeButton.addEventListener('click', closeLightbox)
+      prevButton.addEventListener('click', previousSlide)
+      nextButton.addEventListener('click', nextSlide)
     }
+
     // Retourne les données associées à l'objet média
     return {
       title,
