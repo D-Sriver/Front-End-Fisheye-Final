@@ -63,13 +63,15 @@ function displayMediaLightbox (index) {
   const medias = document.querySelectorAll('.img-gallery')
   const sliderImage = document.querySelector('.image-contain')
   const titreCard = document.querySelectorAll('.title-card')
+  const lightboxModal = document.getElementById('lightbox-modal')
 
   sliderImage.setAttribute('aria-label', 'image closeup view')
   console.log('Index image actuelle : ', ((currentIndex) + 1))
+  lightboxModal.setAttribute('aria-hidden', 'true')
 
   medias[index].src.slice(-('mp4').length).match('mp4')
     ? sliderImage.innerHTML = `
-        <video controls src='${medias[index].src}' class='img-lightbox' tabindex="1">Video</video>
+        <video controls src='${medias[index].src}' class='img-lightbox' tabindex="0">Video</video>
         <span tabindex='1'>${titreCard[index].innerText}</span>            `
     : sliderImage.innerHTML = `
         <img src='${medias[index].src}'  alt='image du photographe ' class='img-lightbox' data='${medias[index].data}'>

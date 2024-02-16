@@ -11,13 +11,13 @@
   </head>
   <body>
     <header>
-      <a href="index.html" aria-label="liens image logo vers la page accueil" tabindex="1"><img src="assets/images/logo.png" class="logo"
+      <a href="index.html" aria-label="liens image logo vers la page accueil" tabindex="0"><img src="assets/images/logo.png" class="logo"
           alt="logo fisheye"></a>
     </header>
 
     <main id="main" aria-hidden="false" aria-label="page profil">
       <div class="photograph-header">
-        <button class="contact-button" onclick="displayModal()" tabindex="2">Contactez-moi</button>
+        <button class="contact-button" onclick="displayModal()" tabindex="0">Contactez-moi</button>
       </div>
   
       <div class="gallerie-media">
@@ -27,14 +27,14 @@
           </p>
           <div class="gallerie-media-filters-menu">
   
-            <button id="buttonFilter" class="gallerie-media-filters-menu--selected" aria-current="true" aria-controls="filterList" aria-expanded="false" tabindex="3">
+            <button id="buttonFilter" class="gallerie-media-filters-menu--selected" aria-current="true" aria-controls="filterList" aria-expanded="false" tabindex="0">
             Popularité<span class="box-arrow"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
             </button>
             
             <ul id="filterList" class="gallerie-media-filters-menu--list">
-              <li style="display: none;" id="filter-popular" aria-description="Trier par popularité" tabindex="3">Popularité</li>
-              <li id="filter-date" aria-description="Trier par date" tabindex="3">Date</li>
-              <li id="filter-title" aria-description="Trier par titre" tabindex="3">Titre</li>
+              <li style="display: none;" id="filter-popular" aria-description="Trier par popularité" tabindex="0">Popularité</li>
+              <li id="filter-date" aria-description="Trier par date" tabindex="0">Date</li>
+              <li id="filter-title" aria-description="Trier par titre" tabindex="0">Titre</li>
           </ul>          
   
           </div>
@@ -53,22 +53,22 @@
           <h2 id="modalTitle">Contactez-moi <br>
             <span id="name-photograph-modal"></span>
           </h2>
-          <img src="assets/icons/close.svg" id="close-modal-btn" onclick="closeModal()" alt="Croix ferme modal" tabindex="4" aria-label="Close Contact form">
+          <img src="assets/icons/close.svg" id="close-modal-btn" onclick="closeModal()" alt="Croix ferme modal" tabindex="0" aria-label="Close Contact form">
         </header>
 
 				<form action="photographer.html" method="post" id="form" aria-labelledby="contactFormLabel">
           <div>
             <label for="prenom">Prénom</label>
-            <input type="text" id="prenom" aria-required="true" tabindex="4" aria-labelledby="prenom">
+            <input type="text" id="prenom" aria-required="true" tabindex="0" aria-labelledby="prenom">
             <label for="nom">Nom</label>
-            <input type="text" id="nom" aria-required="true" tabindex="4" aria-labelledby="nom">
+            <input type="text" id="nom" aria-required="true" tabindex="0" aria-labelledby="nom">
             <label for="email">Email</label>
-            <input type="email" id="email" aria-required="true" tabindex="4" aria-labelledby="email" autocomplete="on">
+            <input type="email" id="email" aria-required="true" tabindex="0" aria-labelledby="email" autocomplete="on">
             <label for="message">Votre message</label>
-            <textarea name="message" id="message" cols="77" rows="10" aria-required="true" tabindex="4" aria-labelledby="message"></textarea>
+            <textarea name="message" id="message" cols="77" rows="10" aria-required="true" tabindex="0" aria-labelledby="message"></textarea>
             <div class="error_message" aria-live="assertive">Veuillez remplir tous les champs avant de valider.</div>
           </div>
-          <button type="submit" class="contact-button" tabindex="4" aria-label="Send">Envoyer</button>
+          <button type="submit" class="contact-button" tabindex="0" aria-label="Send">Envoyer</button>
         </form>        
 
 			</div>

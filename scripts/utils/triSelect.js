@@ -15,6 +15,8 @@ function filterListClose () {
   filterListElement.classList.add('display-none')
   filterSelectedElement.removeAttribute('aria-expanded',
     filterSelectedElement.getAttribute('aria-expanded') === 'true')
+  filterSelectedElement.setAttribute('aria-expanded', 'false')
+  filterListElement.setAttribute('aria-hidden', 'true')
 }
 
 const arrowToggle = (() => {
@@ -37,6 +39,7 @@ const arrowToggle = (() => {
     }
   }
 })()
+
 document.addEventListener('click', arrowToggle)
 
 buttonSelect.addEventListener('click', () => {
