@@ -80,6 +80,11 @@ class Profil {
         // Ouverture lightbox
         displayLightbox(index)
       })
+      e.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          displayLightbox(index)
+        }
+      })
     })
   }
 }
