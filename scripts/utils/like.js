@@ -8,7 +8,36 @@ function totalLike () {
     const nombreLike = Number(element.innerText)
     total += nombreLike
   })
+
   return total
+}
+
+function updateLike (buttonClicked, newValue, likeVide, likePlein) {
+  buttonClicked.innerHTML = newValue
+
+  if (newValue !== likeUtilisateur) {
+    likeVide.style.display = 'none'
+    likePlein.style.display = 'inline'
+    displayTotalLike()
+  }
+}
+
+function handleLikeClick (likeVide, likePlein, increment) {
+  likeVide.addEventListener('click', function (e) {
+    const buttonClicked = e.target.parentElement.parentElement.children[0]
+    const nbreLike = Number(buttonClicked.innerText)
+    const newValue = nbreLike + increment
+    updateLike(buttonClicked, newValue, likeVide, likePlein)
+  })
+
+  likeVide.addEventListener('keyup', function (e) {
+    if (e.key === 'Enter') {
+      const buttonClicked = e.target.parentElement.parentElement.children[0]
+      const nbreLike = Number(buttonClicked.innerText)
+      const newValue = nbreLike + increment
+      updateLike(buttonClicked, newValue, likeVide, likePlein)
+    }
+  })
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -17,19 +46,7 @@ function likePlus () {
   const likerLikePlein = document.querySelectorAll('.like-plein')
 
   for (let i = 0; i < likerLikeVide.length; i++) {
-    likerLikeVide[i].addEventListener('click', function (e) {
-      const buttonClicked = e.target.parentElement.parentElement.children[0]
-      let nbreLike = Number(buttonClicked.innerText)
-      const newValue = nbreLike + 1
-      buttonClicked.innerHTML = nbreLike + 1
-
-      if (!(nbreLike = newValue)) {
-        return
-      }
-      likerLikeVide[i].style.display = 'none'
-      likerLikePlein[i].style.display = 'inline'
-      displayTotalLike()
-    })
+    handleLikeClick(likerLikeVide[i], likerLikePlein[i], 1)
   }
 }
 
@@ -39,19 +56,7 @@ function likeMoins () {
   const likerLikePlein = document.querySelectorAll('.like-plein')
 
   for (let i = 0; i < likerLikePlein.length; i++) {
-    likerLikePlein[i].addEventListener('click', function (e) {
-      const buttonClicked = e.target.parentElement.parentElement.children[0]
-      let nbreLike = Number(buttonClicked.innerText)
-      const newValue = nbreLike - 1
-      buttonClicked.innerHTML = nbreLike - 1
-
-      if (!(nbreLike = newValue)) {
-        return
-      }
-      likerLikeVide[i].style.display = 'inline'
-      likerLikePlein[i].style.display = 'none'
-      displayTotalLike()
-    })
+    handleLikeClick(likerLikePlein[i], likerLikeVide[i], -1)
   }
 }
 
