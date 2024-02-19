@@ -97,8 +97,11 @@ class MediaFactory {
     <span tabindex="1" title="titre image">${data.title}</span>
 </div>
 `
+      // eslint-disable-next-line no-undef
       lightbox.querySelector('.cross').addEventListener('click', closeLightbox)
+      // eslint-disable-next-line no-undef
       lightbox.querySelector('.chevron-left').addEventListener('click', previousSlide)
+      // eslint-disable-next-line no-undef
       lightbox.querySelector('.chevron-right').addEventListener('click', nextSlide)
     }
 
