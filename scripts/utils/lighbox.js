@@ -1,4 +1,5 @@
 // ouvrir la lightbox
+// TODO : trouver pourquoi la lightbox ne s'ouvre pas sur l'image avec le clavier
 let currentIndex
 // eslint-disable-next-line no-unused-vars
 function displayLightbox (index) {
@@ -15,7 +16,9 @@ function displayLightbox (index) {
   // Accessibilité
   lightboxModal.setAttribute('aria-label', 'image closeup view')
   lightboxModal.setAttribute('aria-hidden', 'false')
-  closeLightboxBtn.focus()
+  document.addEventListener('DOMContentLoaded', function () {
+    closeLightboxBtn.focus()
+  })
   console.log('index au clic ', ((currentIndex) + 1))
 }
 
