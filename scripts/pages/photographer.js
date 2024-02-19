@@ -46,6 +46,26 @@ class Profil {
     }
   }
 
+  // Fonction pour gérer le clic et la touche Entrée/Espace
+  async handleMediaClick (dataAttribute, medias, Template, index) {
+    const photoMedia = []
+    const videoMedia = []
+
+    for (let i = 0; i < medias.length; i++) {
+      if (dataAttribute === medias[i].image) {
+        photoMedia.push(medias[i])
+        const gallerieMedia = Template.mediaFactory(photoMedia[0])
+        gallerieMedia.getLightboxPhotoDOM()
+      } else if (dataAttribute === medias[i].video) {
+        videoMedia.push(medias[i])
+        const gallerieMedia = Template.mediaFactory(videoMedia[0])
+        gallerieMedia.getLightboxVideoDOM()
+      }
+    }
+
+    displayLightbox(index)
+  }
+
   // Crée le DOM pour les médias du photographe
   async createMediaDOM () {
     // récupération des médias
@@ -55,34 +75,15 @@ class Profil {
     const photos = document.querySelectorAll('.img-gallery')
     // forEach en parcourant les médias
     photos.forEach((e, index) => {
-      e.addEventListener('click', (e) => {
-        // récupérer le nom du media cliqué
+      e.addEventListener('click', async (e) => {
         const dataAttribute = e.target.getAttribute('name')
-        // crée un tableau vide pour les photos et pour les vidéos
-        const photoMedia = []
-        const videoMedia = []
-
-        // boucle sur les medias
-        for (let i = 0; i < medias.length; i++) {
-          // comparaison du nom du media cliqué avec image
-          if (dataAttribute === medias[i].image) {
-            // récupération du media cliqué
-            photoMedia.push(medias[i])
-            const gallerieMedia = Template.mediaFactory(photoMedia[0])
-            gallerieMedia.getLightboxPhotoDOM()
-            // comparaison du nom du media cliqué avec video
-          } else if (dataAttribute == medias[i].video) {
-            videoMedia.push(medias[i])
-            const gallerieMedia = Template.mediaFactory(videoMedia[0])
-            gallerieMedia.getLightboxVideoDOM()
-          }
-        }
-        // Ouverture lightbox
-        displayLightbox(index)
+        await this.handleMediaClick(dataAttribute, medias, Template, index)
       })
-      e.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          displayLightbox(index)
+
+      e.addEventListener('keydown', async (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          const dataAttribute = e.target.getAttribute('name')
+          await this.handleMediaClick(dataAttribute, medias, Template, index)
         }
       })
     })
