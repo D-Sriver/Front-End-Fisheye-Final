@@ -18,6 +18,13 @@ function closeModal () {
   resetForm()
 }
 
+document.addEventListener('keydown', function (event) {
+  const modal = document.getElementById('contact_modal')
+  if (event.key === 'Escape' && modal.style.display === 'block') {
+    closeModal()
+  }
+})
+
 function SubmitForm (event) {
   event.preventDefault()
   if (contactButton.value === 'Fermer') {
