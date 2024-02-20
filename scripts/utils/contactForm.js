@@ -9,20 +9,19 @@ const errors = document.querySelectorAll('.error_message')
 
 function getModalElements () {
   const modal = document.getElementById('contact_modal')
-  const overlay = document.getElementById('overlay')
-  return { modal, overlay }
+  return { modal }
 }
 
 function displayModal () {
-  const { modal, overlay } = getModalElements()
+  const { modal } = getModalElements()
   modal.style.display = 'block'
-  overlay.setAttribute('aria-hidden', 'false')
+  modal.setAttribute('aria-hidden', 'false')
 }
 
 function closeModal () {
-  const { modal, overlay } = getModalElements()
+  const { modal } = getModalElements()
   modal.style.display = 'none'
-  overlay.setAttribute('aria-hidden', 'true')
+  modal.setAttribute('aria-hidden', 'true')
   resetForm()
 }
 
