@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 /* eslint-disable no-undef */
 class Profil {
   constructor () {
@@ -11,7 +10,7 @@ class Profil {
   // Récupère les informations du photographe
   async getProfil () {
     const photographeData = await this.photographersApi.getPhotographers()
-    const photographe = photographeData.find(e => e.id == this.photographeId)
+    const photographe = photographeData.find(e => e.id === parseInt(this.photographeId)) // Use strict equality (===) and parse the ID to ensure type match
     return photographe
   }
 
@@ -29,7 +28,7 @@ class Profil {
     const medias = []
     // eslint-disable-next-line array-callback-return
     mediaData.find(e => {
-      if (e.photographerId == this.photographeId) {
+      if (e.photographerId === parseInt(this.photographeId)) {
         medias.push(e)
       }
     })
