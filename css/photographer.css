@@ -48,11 +48,11 @@
 /* overlay  modal formulaire de contacte  */
 .overlay{
     display: none;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.796);
-    z-index: 9;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 #contact_modal {
@@ -103,9 +103,15 @@
     font-weight: normal;
     text-align:justify;
 }
+.modal input {
+    font-size: 26px;
+}
+.modal input, .modal textarea {
+    font-size: 30px;
+    padding: 2px;
+}
 #name-photograph-modal {
     margin-bottom: 35px;
-
 }
 
 form {
@@ -127,7 +133,7 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
+    margin-bottom: 6px;
 }
 
 form input, form textarea {
@@ -141,12 +147,25 @@ form textarea{
 }
 .error_message{
     display: none;
+    align-self: center;
     color: white;
-    border: 1px solid white;
+    width: 100%;
+    border: 2px solid white;
     background-color: #901C1C;
     border-radius: 30px;
-    padding: 2px;
-    margin-top:10px;
+    margin-top: 10px;
+    text-align: center;
+    padding: 5px;
+    transition: appear 0.3s ease-in-out;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 .no-scroll{
     overflow: hidden;

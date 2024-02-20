@@ -9,19 +9,28 @@ const errors = document.querySelectorAll('.error_message')
 
 function getModalElements () {
   const modal = document.getElementById('contact_modal')
-  return { modal }
+  const overlay = document.querySelector('.overlay')
+  const error = document.querySelector('.error_message')
+  return { modal, overlay, error }
 }
 
 function displayModal () {
   const { modal } = getModalElements()
+  const { overlay } = getModalElements()
+  overlay.style.display = 'block'
   modal.style.display = 'block'
   modal.setAttribute('aria-hidden', 'false')
 }
 
 function closeModal () {
   const { modal } = getModalElements()
-  modal.style.display = 'none'
+  const { overlay } = getModalElements()
+  const { error } = getModalElements()
   modal.setAttribute('aria-hidden', 'true')
+  // effacer les valeurs des champs texte
+  overlay.style.display = 'none'
+  modal.style.display = 'none'
+  error.style.display = 'none'
   resetForm()
 }
 
@@ -65,7 +74,6 @@ function displayUserInfo () {
     console.table(userInfo)
   }
 }
-
 contactButton.forEach(e => {
   e.addEventListener('click', (e) => {
     e.preventDefault()
