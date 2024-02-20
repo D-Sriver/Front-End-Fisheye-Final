@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // ouvrir la lightbox
 let currentIndex
 // eslint-disable-next-line no-unused-vars
@@ -31,7 +32,7 @@ function closeLightbox () {
   // Accessibilité
   lightboxModal.setAttribute('aria-hidden', 'true')
   lightboxModal.setAttribute('aria-label', 'Close dialog')
-  console.log('Index a la fermure', ((currentIndex) + 1))
+  console.log('Index a la fermeture', ((currentIndex) + 1))
 
   // Réinitialiser l'index à 0
   currentIndex = 0
@@ -74,15 +75,23 @@ function displayMediaLightbox (index) {
         <span tabindex='1'>${titreCard[index].innerText}</span> 
         `
 }
-// crée une function simple d'utilisation du clavier pour avancer reculer et fermer la lightbox en ES6
+// crée une function simple d'utilisation du clavier pour avancer reculer et fermer la lightbox
 function navigationLightbox (e) {
   if (e.key === 'ArrowRight') {
-    // eslint-disable-next-line no-undef
     nextSlide()
   } else if (e.key === 'ArrowLeft') {
-    // eslint-disable-next-line no-undef
     previousSlide()
   } else if (e.key === 'Escape') {
     closeLightbox()
+  } else if (e.key === 'Enter') {
+    const activeElement = document.activeElement
+
+    if (activeElement.classList.contains('chevron-right')) {
+      nextSlide()
+    } else if (activeElement.classList.contains('chevron-left')) {
+      previousSlide()
+    } else if (activeElement.classList.contains('cross')) {
+      closeLightbox()
+    }
   }
 }
