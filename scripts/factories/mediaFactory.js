@@ -42,10 +42,10 @@ class MediaFactory {
                 <span class="like-card"> 
                 <span class="nbre-like">${likes} </span>
                    <span class="liker like-vide">   
-                       <i class="far fa-heart" tabindex="7" aria-label="likes" role="bouton"></i>
+                       <i class="far fa-heart" tabindex="7"></i>
                    </span>
                    <span class="liker like-plein"> 
-                       <i class="fas fa-heart" tabindex="7" aria-label="likes" role="bouton"></i>
+                       <i class="fas fa-heart" tabindex="7"></i>
                    </span>
                    </span>
 
@@ -61,21 +61,22 @@ class MediaFactory {
         // si pas de video on affiche une photo
         gallery.innerHTML +=
                     `
-                <div class="photo-card">
-                <img src="${picture}" name="${image}" alt="image ${image} ouvre photo dans lighting-box" class="img-gallery" tabindex="7"></img>
-                <h2> <span class="title-card">${title}</span>
-                <span class="like-card"> 
-                <span class="nbre-like">${likes} </span>
-                   <span class="liker like-vide">   
-                       <i class="far fa-heart" tabindex="7" aria-label="ajouter j'aime en cliquant" role="bouton"></i>
-                   </span>
-                   <span class="liker like-plein"> 
-                       <i class="fas fa-heart" tabindex="7" aria-label="retirer j'aime en cliquant" role="bouton"></i>
-                   </span>
-                   </span>
-
-               </h2>
+                    <div class="photo-card">
+                    <img src="${picture}" name="${image}" alt="image ${image} ouvre photo dans lighting-box" class="img-gallery" tabindex="7">
+                    <h2>
+                        <span class="title-card">${title}</span>
+                        <span class="like-card">
+                            <span class="nbre-like">${likes} </span>
+                            <span class="liker like-vide">
+                                <i class="far fa-heart" aria-label="likes" tabindex="7" role="button"></i>
+                            </span>
+                            <span class="liker like-plein">
+                                <i class="fas fa-heart" aria-label="likes" tabindex="7" role="button"></i>
+                            </span>
+                        </span>
+                    </h2>
                 </div>
+                
                 `
       }
     }
