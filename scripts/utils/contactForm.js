@@ -41,7 +41,7 @@ document.addEventListener('keydown', function (event) {
   }
 })
 
-function SubmitForm (event) {
+function submitForm (event) {
   event.preventDefault()
   if (contactButton.value === 'Fermer') {
     closeModal()

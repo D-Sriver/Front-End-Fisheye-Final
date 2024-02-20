@@ -1,5 +1,4 @@
 // ouvrir la lightbox
-// TODO : trouver pourquoi la lightbox ne s'ouvre pas sur l'image avec le clavier
 let currentIndex
 // eslint-disable-next-line no-unused-vars
 function displayLightbox (index) {
@@ -78,8 +77,10 @@ function displayMediaLightbox (index) {
 // crée une function simple d'utilisation du clavier pour avancer reculer et fermer la lightbox en ES6
 function navigationLightbox (e) {
   if (e.key === 'ArrowRight') {
+    // eslint-disable-next-line no-undef
     nextSlide()
   } else if (e.key === 'ArrowLeft') {
+    // eslint-disable-next-line no-undef
     previousSlide()
   } else if (e.key === 'Escape') {
     closeLightbox()

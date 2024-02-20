@@ -17,8 +17,8 @@ class Profil {
   // Affiche le header du profil du photographe
   async displayProfilHeader () {
     const photographe = await this.getProfil()
-    const Template = new PhotographerFactory()
-    const photographerModel = Template.photographerFactory(photographe)
+    const template = new PhotographerFactory()
+    const photographerModel = template.photographerFactory(photographe)
     photographerModel.getProfilUserDOM()
   }
 
@@ -37,10 +37,10 @@ class Profil {
 
   // Afficher mes medias
   async displayMedias (medias) {
-    const Template = new MediaFactory()
+    const template = new MediaFactory()
     // boucle pour afficher les médias
     for (let i = 0; i < medias.length; i++) {
-      const gallerieMedia = Template.mediaFactory(medias[i])
+      const gallerieMedia = template.mediaFactory(medias[i])
       gallerieMedia.getMediaUserDOM()
     }
   }
@@ -68,7 +68,7 @@ class Profil {
   // Crée le DOM pour les médias du photographe
   async createMediaDOM () {
     // récupération des médias
-    const Template = new MediaFactory()
+    const template = new MediaFactory()
     const medias = await this.getAllMediaPhotographer()
     // sélectionner les médias
     const photos = document.querySelectorAll('.img-gallery')
@@ -76,13 +76,13 @@ class Profil {
     photos.forEach((e, index) => {
       e.addEventListener('click', async (e) => {
         const dataAttribute = e.target.getAttribute('name')
-        await this.handleMediaClick(dataAttribute, medias, Template, index)
+        await this.handleMediaClick(dataAttribute, medias, template, index)
       })
 
       e.addEventListener('keydown', async (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           const dataAttribute = e.target.getAttribute('name')
-          await this.handleMediaClick(dataAttribute, medias, Template, index)
+          await this.handleMediaClick(dataAttribute, medias, template, index)
         }
       })
     })
