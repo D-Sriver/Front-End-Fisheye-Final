@@ -41,26 +41,22 @@ function closeLightbox () {
   document.removeEventListener('keydown', navigationLightbox)
 }
 // Passer à la slide suivante
-function nextSlide () {
+function changeSlide (direction) {
   const medias = document.querySelectorAll('.img-gallery')
-  if (currentIndex < medias.length - 1) {
-    currentIndex++
-  } else {
-    currentIndex = 0
-  }
-  displayMediaLightbox(currentIndex)
-}
 
-// Passer à la slide précédente
-function previousSlide () {
-  const medias = document.querySelectorAll('.img-gallery')
-  if (currentIndex > 0) {
-    currentIndex--
-  } else {
-    currentIndex = medias.length - 1
+  if (direction === 'next') {
+    currentIndex = (currentIndex + 1) % medias.length
+  } else if (direction === 'previous') {
+    currentIndex = (currentIndex - 1 + medias.length) % medias.length
   }
+
   displayMediaLightbox(currentIndex)
 }
+// eslint-disable-next-line no-undef
+nextSlide = () => changeSlide('next')
+// eslint-disable-next-line no-undef
+previousSlide = () => changeSlide('previous')
+
 // Afficher slide
 function displayMediaLightbox (index) {
   const medias = document.querySelectorAll('.img-gallery')

@@ -89,9 +89,9 @@ class MediaFactory {
       lightbox.innerHTML =
     `
 <header>
-    <img src="assets/icons/close-lightbox.svg" class="cross" alt="Croix ferme modal" tabindex="1"/>
-    <img src="assets/icons/chevron-left.svg" class="chevron-left" alt="chevron photo précédente" tabindex="1"/>
-    <img src="assets/icons/chevron-right.svg" class="chevron-right" alt="Chevron Slide suivante" tabindex="1"/>
+    <img src="assets/icons/close-lightbox.svg" class="cross" alt="Croix ferme modal" tabindex="1" role="button" />
+    <img src="assets/icons/chevron-left.svg" class="chevron-left" alt="chevron photo précédente" tabindex="1" role="button"/>
+    <img src="assets/icons/chevron-right.svg" class="chevron-right" alt="Chevron Slide suivante" tabindex="1" role="button"/>
 </header>
 <div class="image-contain">
     <img src="${picture}" alt="image du photographe ${image}" class="img-lightbox" data="${data.title}"></img>
