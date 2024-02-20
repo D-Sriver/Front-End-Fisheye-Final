@@ -34,6 +34,14 @@ function closeModal () {
   resetForm()
 }
 
+const closeModalBtn = document.getElementById('close-modal-btn')
+
+closeModalBtn.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    closeModal()
+  }
+})
+
 document.addEventListener('keydown', function (event) {
   const modal = document.getElementById('contact_modal')
   if (event.key === 'Escape' && modal.style.display === 'block') {
