@@ -7,14 +7,22 @@ const message = document.getElementById('message')
 const contactButton = document.querySelectorAll('.contact-button')
 const errors = document.querySelectorAll('.error_message')
 
-function displayModal () {
+function getModalElements () {
   const modal = document.getElementById('contact_modal')
+  const overlay = document.getElementById('overlay')
+  return { modal, overlay }
+}
+
+function displayModal () {
+  const { modal, overlay } = getModalElements()
   modal.style.display = 'block'
+  overlay.setAttribute('aria-hidden', 'false')
 }
 
 function closeModal () {
-  const modal = document.getElementById('contact_modal')
+  const { modal, overlay } = getModalElements()
   modal.style.display = 'none'
+  overlay.setAttribute('aria-hidden', 'true')
   resetForm()
 }
 
