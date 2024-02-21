@@ -4,22 +4,18 @@ let currentIndex
 // eslint-disable-next-line no-unused-vars
 function displayLightbox (index) {
   const lightboxModal = document.getElementById('lightbox-modal')
-  const closeLightboxBtn = document.querySelector('.cross')
-  lightboxModal.style.display = 'block'
   const priceDiv = document.querySelector('.price')
+  // cache le prix lors de l'ouverture de la lightbox
   priceDiv.style.opacity = '0'
+  lightboxModal.style.display = 'block'
 
   document.addEventListener('keydown', navigationLightbox)
-
   currentIndex = index
+  lightboxModal.focus()
 
   // Accessibilité
   lightboxModal.setAttribute('aria-label', 'image closeup view')
   lightboxModal.setAttribute('aria-hidden', 'false')
-  document.addEventListener('DOMContentLoaded', function () {
-    closeLightboxBtn.focus()
-  })
-  console.log('index au clic ', ((currentIndex) + 1))
 }
 
 // Fermer lightbox
@@ -32,7 +28,6 @@ function closeLightbox () {
   // Accessibilité
   lightboxModal.setAttribute('aria-hidden', 'true')
   lightboxModal.setAttribute('aria-label', 'Close dialog')
-  console.log('Index a la fermeture', ((currentIndex) + 1))
 
   // Réinitialiser l'index à 0
   currentIndex = 0
@@ -52,9 +47,7 @@ function changeSlide (direction) {
 
   displayMediaLightbox(currentIndex)
 }
-// eslint-disable-next-line no-undef
 nextSlide = () => changeSlide('next')
-// eslint-disable-next-line no-undef
 previousSlide = () => changeSlide('previous')
 
 // Afficher slide
@@ -64,7 +57,6 @@ function displayMediaLightbox (index) {
   const titreCard = document.querySelectorAll('.title-card')
 
   sliderImage.setAttribute('aria-label', 'image closeup view')
-  console.log('Index image actuelle : ', ((currentIndex) + 1))
 
   medias[index].src.slice(-('mp4').length).match('mp4')
     ? sliderImage.innerHTML = `
