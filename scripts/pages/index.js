@@ -10,17 +10,16 @@ class App {
     const photographersData = await this.photographersApi.getPhotographers()
 
     // Instanciation des données de l'API en utilisant PhotographerFactory
-    // Pourquoi ça ne marche pas p****.
-    const Photographers = await photographersData.map(photographers => new PhotographerFactory(photographers, 'photoApi'))
+    const photographers = await photographersData.map(photographers => new PhotographerFactory(photographers, 'photoApi'))
 
     // Récupération de la section où afficher les photographes dans l'interface utilisateur
     const photographersSection = document.querySelector('.photographer-section')
 
     // Itération sur les photographes pour créer des éléments HTML et les ajouter à la section
-    Photographers.forEach(photographe => {
+    photographers.forEach(photographe => {
       // Création d'une instance de PhotographerFactory pour chaque photographe
-      const Template = new PhotographerFactory()
-      const photographerModel = Template.photographerFactory(photographe)
+      const template = new PhotographerFactory()
+      const photographerModel = template.photographerFactory(photographe)
 
       // Récupération de la carte utilisateur HTML générée par PhotographerFactory
       const userCardDOM = photographerModel.getUserCardDOM()

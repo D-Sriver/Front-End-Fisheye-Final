@@ -1,32 +1,55 @@
 /* eslint-disable no-unused-vars */
-// Crée des constantes pour récupérer les éléments du DOM
+
 const prenom = document.getElementById('prenom')
 const nom = document.getElementById('nom')
 const email = document.getElementById('email')
 const message = document.getElementById('message')
 const contactButton = document.querySelectorAll('.contact-button')
 const errors = document.querySelectorAll('.error_message')
+const closeBtn = document.getElementById('close-modal-btn')
 
-function displayModal () {
+// ajoute un écouteur sur le bouton depuis le DOM
+document.body.addEventListener('click', function (e) {
+  if (e.target.matches('.contact-button.open-modal')) {
+    e.preventDefault()
+    displayModal()
+  }
+})
+// Récupère les éléments de la modal
+function getModalElements () {
   const modal = document.getElementById('contact_modal')
-  modal.style.display = 'block'
+  const overlay = document.querySelector('.overlay')
+  const error = document.querySelector('.error_message')
+  return { modal, overlay, error }
 }
-
-function closeModal () {
-  const modal = document.getElementById('contact_modal')
+/// ----------------- Ouvre la modal ----------------- ///
+function displayModal () {
+  const { modal, overlay } = getModalElements()
+  overlay.style.display = 'block'
+  modal.style.display = 'block'
+  modal.setAttribute('aria-hidden', 'true')
+}
+/// ----------------- Ferme la modal ----------------- ///
+const closeModal = () => {
+  const { modal, overlay } = getModalElements()
   modal.style.display = 'none'
+  overlay.style.display = 'none'
+  modal.setAttribute('aria-hidden', 'false')
   resetForm()
 }
 
-function SubmitForm (event) {
-  event.preventDefault()
-  if (contactButton.value === 'Fermer') {
+closeBtn.addEventListener('click', closeModal)
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && e.target === closeBtn) {
+    closeModal()
+  } else if (e.key === 'Escape') {
     closeModal()
   }
-}
+})
 
+/// ----------------- Le formulaire ----------------- ///
 function displayUserInfo () {
-  // Récupérer les valeurs des champs texte
   const prenomValue = prenom.value
   const nomValue = nom.value
   const emailValue = email.value
@@ -38,7 +61,7 @@ function displayUserInfo () {
     'E-mail': emailValue,
     Message: messageValue
   }
-
+  // Vérifie si les champs sont vides
   if (!prenomValue || !nomValue || !emailValue || !messageValue) {
     errors.forEach(errorElement => {
       errorElement.style.display = 'block'
@@ -50,14 +73,20 @@ function displayUserInfo () {
     closeModal()
   }
 }
-
+function submitForm (event) {
+  event.preventDefault()
+  if (contactButton.value === 'Fermer') {
+    closeModal()
+  }
+}
+// Affiche les informations de l'utilisateur au clic
 contactButton.forEach(e => {
   e.addEventListener('click', (e) => {
     e.preventDefault()
     displayUserInfo()
   })
 })
-
+// Réinitialise le formulaire
 function resetForm () {
   nom.value = ''
   prenom.value = ''

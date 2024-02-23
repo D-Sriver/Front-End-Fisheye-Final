@@ -1,21 +1,21 @@
+/* eslint-disable no-undef */
 // ouvrir la lightbox
 let currentIndex
 // eslint-disable-next-line no-unused-vars
 function displayLightbox (index) {
   const lightboxModal = document.getElementById('lightbox-modal')
-  const closeLightboxBtn = document.querySelector('.cross')
-  lightboxModal.style.display = 'block'
   const priceDiv = document.querySelector('.price')
+  // cache le prix lors de l'ouverture de la lightbox
   priceDiv.style.opacity = '0'
+  lightboxModal.style.display = 'block'
 
   document.addEventListener('keydown', navigationLightbox)
-
   currentIndex = index
+  lightboxModal.focus()
 
   // Accessibilité
   lightboxModal.setAttribute('aria-label', 'image closeup view')
   lightboxModal.setAttribute('aria-hidden', 'false')
-  closeLightboxBtn.focus()
 }
 
 // Fermer lightbox
@@ -36,26 +36,20 @@ function closeLightbox () {
   document.removeEventListener('keydown', navigationLightbox)
 }
 // Passer à la slide suivante
-function nextSlide () {
+function changeSlide (direction) {
   const medias = document.querySelectorAll('.img-gallery')
-  if (currentIndex < medias.length - 1) {
-    currentIndex++
-  } else {
-    currentIndex = 0
-  }
-  displayMediaLightbox(currentIndex)
-}
 
-// Passer à la slide précédente
-function previousSlide () {
-  const medias = document.querySelectorAll('.img-gallery')
-  if (currentIndex > 0) {
-    currentIndex--
-  } else {
-    currentIndex = medias.length - 1
+  if (direction === 'next') {
+    currentIndex = (currentIndex + 1) % medias.length
+  } else if (direction === 'previous') {
+    currentIndex = (currentIndex - 1 + medias.length) % medias.length
   }
+
   displayMediaLightbox(currentIndex)
 }
+nextSlide = () => changeSlide('next')
+previousSlide = () => changeSlide('previous')
+
 // Afficher slide
 function displayMediaLightbox (index) {
   const medias = document.querySelectorAll('.img-gallery')
@@ -64,7 +58,6 @@ function displayMediaLightbox (index) {
   const lightboxModal = document.getElementById('lightbox-modal')
 
   sliderImage.setAttribute('aria-label', 'image closeup view')
-  lightboxModal.setAttribute('aria-hidden', 'true')
 
   medias[index].src.slice(-('mp4').length).match('mp4')
     ? sliderImage.innerHTML = `
@@ -75,7 +68,7 @@ function displayMediaLightbox (index) {
         <span tabindex='1'>${titreCard[index].innerText}</span> 
         `
 }
-// crée une function simple d'utilisation du clavier pour avancer reculer et fermer la lightbox en ES6
+// crée une function simple d'utilisation du clavier pour avancer reculer et fermer la lightbox
 function navigationLightbox (e) {
   if (e.key === 'ArrowRight') {
     nextSlide()
@@ -83,5 +76,15 @@ function navigationLightbox (e) {
     previousSlide()
   } else if (e.key === 'Escape') {
     closeLightbox()
+  } else if (e.key === 'Enter') {
+    const activeElement = document.activeElement
+
+    if (activeElement.classList.contains('chevron-right')) {
+      nextSlide()
+    } else if (activeElement.classList.contains('chevron-left')) {
+      previousSlide()
+    } else if (activeElement.classList.contains('cross')) {
+      closeLightbox()
+    }
   }
 }
