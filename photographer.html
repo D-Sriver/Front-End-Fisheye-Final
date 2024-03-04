@@ -57,7 +57,7 @@
           <img src="assets/icons/close.svg" id="close-modal-btn" alt="Croix ferme modal" tabindex="4" aria-label="Close Contact form">
         </header>
 
-				<form action="photographer.html" method="post" id="form" aria-labelledby="contactFormLabel">
+				<form action="photographer.html" method="post" id="form" aria-labelledby="modalTitle">
           <div>
             <label for="prenom" id="labelPrenom">Prénom</label>
             <input type="text" id="prenom" aria-required="true" tabindex="4" aria-roledescription="Entrez votre Prénom" aria-labelledby="labelPrenom">
@@ -73,9 +73,11 @@
             
             <div id="errorLabel" class="error_message" aria-live="assertive">Veuillez remplir tous les champs avant de valider.</div>
           </div>
-        
-          <button type="submit" class="contact-button" tabindex="4" aria-label="Envoyer" aria-labelledby="errorLabel">Envoyer</button>
+          
+          <button type="submit" class="contact-button" tabindex="4" aria-label="Envoyer" aria-labelledby="modalTitle errorLabel">Envoyer</button>
         </form>
+        
+        
              
 
 			</div>
