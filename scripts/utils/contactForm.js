@@ -61,6 +61,7 @@ function displayUserInfo () {
     'E-mail': emailValue,
     Message: messageValue
   }
+  console.table(userInfo)
   // Vérifie si les champs sont vides
   if (!prenomValue || !nomValue || !emailValue || !messageValue) {
     errors.forEach(errorElement => {
